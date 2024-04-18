@@ -2,6 +2,9 @@ import requests, os, colorama, shutil
 
 def checkCookie():
     cookies = os.listdir("cookies")
+    hits = 0
+    errors = 0
+    bad = 0
     for cookie in cookies:
         try:
             cookie_path = "cookies/" + cookie
@@ -25,12 +28,18 @@ def checkCookie():
                 if "whos.watching" in response.text:
                     print(colorama.Fore.GREEN + f"Login successful with {cookie}" + colorama.Fore.RESET)
                     shutil.copy(cookie_path, f"hits/{cookie}")
-                    
+                    hits += 1
                 else:
                     print(colorama.Fore.RED + f"Login failed with {cookie}" + colorama.Fore.RESET)
+                    bad += 1
         except Exception as e:
             print(colorama.Fore.RED + f"Error: {e} with {cookie}" + colorama.Fore.RESET)
+            errors += 1
             continue
+
+    print("\n\nFinished Checking")
+    print(f"Good: {hits} - Bad: {bad} - Errors: {errors}")
+    input("Press Enter to exit")
 
 if __name__ == "__main__":
     checkCookie()
