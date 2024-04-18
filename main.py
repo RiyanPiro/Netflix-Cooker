@@ -29,7 +29,7 @@ def checkCookie():
                 else:
                     print(colorama.Fore.RED + f"Login failed with {cookie}" + colorama.Fore.RESET)
         except Exception as e:
-            print(colorama.Fore.RED + f"Error: {e} with {cookie_path}" + colorama.Fore.RESET)
+            print(colorama.Fore.RED + f"Error: {e} with {cookie}" + colorama.Fore.RESET)
             continue
 
 if __name__ == "__main__":
