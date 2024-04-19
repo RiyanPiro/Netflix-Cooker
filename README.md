@@ -1,4 +1,4 @@
-# 🚀 Netflix Cookie Checker
+# 🚀 Netflix Cooker
 ## 💥 Features
 - No Proxies Required
 - No Rate Limit
